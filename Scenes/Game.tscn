@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://6onlf0u8huak"]
+
+[ext_resource type="Script" path="res://Scripts/Game.cs" id="1_g0a2v"]
+[ext_resource type="PackedScene" uid="uid://bacngorchq7oc" path="res://Scenes/Stars.tscn" id="2_gc7e8"]
+[ext_resource type="PackedScene" uid="uid://uok3ycklyaxr" path="res://Scenes/Player.tscn" id="3_prssm"]
+[ext_resource type="PackedScene" uid="uid://cr33g7cg03428" path="res://Scenes/Asteroid.tscn" id="4_c8o6g"]
+
+[node name="Game" type="Node2D" node_paths=PackedStringArray("Player", "Background")]
+script = ExtResource("1_g0a2v")
+Player = NodePath("Player")
+Background = NodePath("ParallaxBackground")
+Asteroid = ExtResource("4_c8o6g")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_base_scale = Vector2(0, 0)
+scroll_limit_end = Vector2(1920, 1080)
+scroll_ignore_camera_zoom = true
+
+[node name="Stars" parent="ParallaxBackground" instance=ExtResource("2_gc7e8")]
+
+[node name="Player" parent="." instance=ExtResource("3_prssm")]
+position = Vector2(960, 540)
+scale = Vector2(0.05, 0.05)
