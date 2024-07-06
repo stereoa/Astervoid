@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://uok3ycklyaxr"]
+
+[ext_resource type="Script" path="res://Scripts/Player.cs" id="1_4ucjj"]
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("Thruster")]
+scale = Vector2(0.15, 0.15)
+motion_mode = 1
+script = ExtResource("1_4ucjj")
+Thruster = NodePath("Ship/Thruster")
+
+[node name="Ship" type="Polygon2D" parent="."]
+position = Vector2(6.10352e-05, -0.999969)
+scale = Vector2(82.3529, 99.5238)
+polygon = PackedVector2Array(0, -2, -2, 2, 0, 1, 2, 2)
+
+[node name="Thruster" type="Polygon2D" parent="Ship"]
+position = Vector2(0, -1.246)
+offset = Vector2(0, 2)
+polygon = PackedVector2Array(-1, 0, 1, 0, 0, 2)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -2, -2, 2, 0, 1, 2, 2)
+
+[node name="Camera2D" type="Camera2D" parent="."]
